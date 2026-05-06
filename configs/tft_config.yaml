@@ -1,0 +1,85 @@
+dataset:
+  group_ids:
+  - id
+  max_encoder_length: 56
+  max_prediction_length: 28
+  min_encoder_length: 56
+  min_prediction_length: 28
+  static_categoricals:
+  - store_id
+  - dept_id
+  - cat_id
+  - state_id
+  target: sales
+  target_normalizer: softplus
+  time_varying_known_reals:
+  - time_idx
+  - month_sin
+  - month_cos
+  - dow_sin
+  - dow_cos
+  - sell_price
+  - is_snap
+  - is_event
+  - is_cultural
+  - is_national
+  - is_religious
+  - is_sporting
+  - price_vs_category_mean
+  - is_price_reduced
+  time_varying_unknown_reals:
+  - sales
+  - lag_28
+  - lag_35
+  - lag_42
+  - lag_56
+  - rolling_mean_7
+  - rolling_mean_28
+  - rolling_std_28
+model:
+  attention_head_size: 8
+  dropout: 0.13858348921881514
+  hidden_continuous_size: 32
+  hidden_size: 32
+  learning_rate: 0.0005628187441522603
+  log_interval: 10
+  output_size: 7
+  reduce_on_plateau_patience: 4
+optuna:
+  best_val_loss: 0.5593562722206116
+  n_trials: 50
+  params:
+    attention_head_size:
+    - 1
+    - 2
+    - 4
+    dropout:
+    - 0.05
+    - 0.1
+    - 0.15
+    - 0.2
+    hidden_continuous_size:
+    - 8
+    - 16
+    - 32
+    hidden_size:
+    - 32
+    - 64
+    - 128
+    - 256
+    learning_rate:
+    - 0.0001
+    - 0.003
+  timeout: 3600
+paths:
+  model_checkpoint: outputs/models/tft_best.ckpt
+  predictions_test: outputs/predictions/tft_test_preds.csv
+  predictions_val: outputs/predictions/tft_val_preds.csv
+  test: data/features/test.parquet
+  train: data/features/train.parquet
+  val: data/features/val.parquet
+training:
+  batch_size: 64
+  gradient_clip_val: 0.1
+  max_epochs: 50
+  num_workers: 4

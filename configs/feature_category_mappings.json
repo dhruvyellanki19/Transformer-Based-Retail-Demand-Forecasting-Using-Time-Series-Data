@@ -1,0 +1,33 @@
+{
+  "cat_id": {
+    "FOODS": 0,
+    "HOBBIES": 1,
+    "HOUSEHOLD": 2
+  },
+  "dept_id": {
+    "FOODS_1": 0,
+    "FOODS_2": 1,
+    "FOODS_3": 2,
+    "HOBBIES_1": 3,
+    "HOBBIES_2": 4,
+    "HOUSEHOLD_1": 5,
+    "HOUSEHOLD_2": 6
+  },
+  "state_id": {
+    "CA": 0,
+    "TX": 1,
+    "WI": 2
+  },
+  "store_id": {
+    "CA_1": 0,
+    "CA_2": 1,
+    "CA_3": 2,
+    "CA_4": 3,
+    "TX_1": 4,
+    "TX_2": 5,
+    "TX_3": 6,
+    "WI_1": 7,
+    "WI_2": 8,
+    "WI_3": 9
+  }
+}
